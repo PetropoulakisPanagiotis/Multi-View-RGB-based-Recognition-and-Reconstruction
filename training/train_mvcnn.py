@@ -265,8 +265,8 @@ if __name__ == "__main__":
     config = {
         'experiment_name': 'mvcnn_mbexp1',
         'device': 'cuda:0',
-        'is_overfit': False,
-        'batch_size': 64,
+        'is_overfit': True,
+        'batch_size': 4,
         'resume_ckpt': None,#'./saved_models/mvcnn_overfitting/model_best_acc.ckpt',
         'learning_rate': 0.0006151913457845259,
         'max_epochs': 250,

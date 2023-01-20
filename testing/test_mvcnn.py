@@ -85,6 +85,7 @@ def test(model, test_dataloader, device, config):
     best_batch_iou = -np.inf
     best_batch_iou_id = 0
     best_batch_iou_data = None
+    best_batch_iou_data_true = None
     best_batch_iou_labels = None
     predictions_list= None
     target_list= None
@@ -118,6 +119,7 @@ def test(model, test_dataloader, device, config):
                 if(iou > best_batch_iou):
                     best_batch_iou = iou
                     best_batch_iou_data = predictions_rec.cpu().numpy()
+                    best_batch_iou_data_true = batch_test['voxel'].cpu().numpy()
                     best_batch_iou_labels = target
                     best_target_shape = target.shape[0]
 
@@ -154,6 +156,7 @@ def test(model, test_dataloader, device, config):
         for i in range(best_target_shape):
             class_tmp = ShapeNetDataset.index_to_class(best_batch_iou_labels[i].item())
             save_voxel_grid(config["recon_folder"] + "/" + str(class_tmp)  + ".ply", best_batch_iou_data[i, :, :, :])
+            save_voxel_grid(config["recon_folder"] + "/" + str(class_tmp) + "_true" + ".ply", best_batch_iou_data_true[i, :, :, :])
 
 # plot the images in the batch, along with predicted and true labels
 def plot_classes_preds(images, predicted_labels, predictions, labels, classes, plot_images_num):
@@ -220,8 +223,10 @@ if __name__ == "__main__":
     config = {
         'experiment_name': 'mvcnn_mbexp1_test',
         'device': 'cuda:0',
-        'batch_size': 64,
-        'resume_ckpt': '../training/saved_models/mvcnn_mbexp1/model_best_loss.ckpt',
+        #'batch_size': 64,
+        'batch_size': 4,
+        #'resume_ckpt': '../training/saved_models/mvcnn_mbexp1/model_best_loss.ckpt',
+        'resume_ckpt': '../training/saved_models/mvcnn_mbexp1/model_best_iou.ckpt',
         'num_views': 1,
         'cl_weight': 0.5,
         'plot_images_num': 1,
