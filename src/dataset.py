@@ -147,10 +147,10 @@ class ShapeNetDataset(Dataset):
 
         # Visualize #
         #if class_label == "airplane":
-        #for image in images:
-        #   image = ShapeNetDataset.denormalize_image(image) # Data are normalized for ImageNet undo 
-        #   cv2.imshow("test", image.permute(1,2,0).numpy().astype("uint8")) # uint8!!
-        #   cv2.waitKey(0)
+        for image in images:
+           image = ShapeNetDataset.denormalize_image(image) # Data are normalized for ImageNet undo 
+           cv2.imshow("test", image.permute(1,2,0).numpy().astype("uint8")) # uint8!!
+           cv2.waitKey(0)
 
         # Voxel #
         path_voxel = self.data_dir + self.voxels_dir + str(curr_id) +  "/model.binvox"
@@ -179,9 +179,9 @@ class ShapeNetDataset(Dataset):
     @staticmethod
     def get_augmentations_2(prob=0.3):
         pick = np.random.binomial(1, prob, 1)[0]
-
         if(pick == 1):
-            transforms = T.Compose([T.GaussianBlur(kernel_size=(5,9), sigma=(4,5))]) #, T.ColorJitter(brightness=(0.0,0.0), hue=(0.0,0.0))])
+            transforms = T.Compose([T.GaussianBlur(kernel_size=(3,3), sigma=(0.1,2)),T.ColorJitter(hue=(-0.3, 0.3)),
+            T.RandomErasing(p=1.0, scale=(0.005, 0.005))])
         else:
             transforms = None
 
@@ -235,7 +235,7 @@ if __name__ == "__main__":
     #dataset = ShapeNetDataset(split="train", num_views=15, augmentation_json_flag=True, augmentations_flag=True)
     #dataset = ShapeNetDataset(split="val", num_views=15, augmentation_json_flag=True, augmentations_flag=False)
     #dataset = ShapeNetDataset(split="train", num_views=15, augmentation_json_flag=True, augmentations_flag=False)
-    dataset = ShapeNetDataset(split="train", num_views=24, augmentation_json_flag=False, augmentations_flag=False)
+    dataset = ShapeNetDataset(split="train", num_views=24, augmentation_json_flag=False, augmentations_flag=True)
 
     # Seeds #
     torch.manual_seed(15)
