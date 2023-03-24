@@ -7,7 +7,6 @@ We input 3 randomly sampled views to the pre-trained MobileVNetV3-Large \cite{mo
 
 <p align="center">
 <img src="data/multi.png" width="720px" height="370px"> 
-<img src="data/reconstructions.png" width="220px" height="150px"> 
 </p>
 <br /> 
 
@@ -16,7 +15,7 @@ We input 3 randomly sampled views to the pre-trained MobileVNetV3-Large \cite{mo
 Our method can reconstruct the original 3D object fairly well while using only 3 views during training and inference time
 
 <p align="center">
-<img src="data/reconstructions.png" width="220px" height="150px"> 
+<img src="data/reconstructions.png" width="320px" height="250px"> 
 </p>
 <br /> 
 
