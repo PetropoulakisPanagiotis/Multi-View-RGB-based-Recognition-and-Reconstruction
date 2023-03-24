@@ -3,7 +3,7 @@ The optimal form of the input representation to the Neural networks, which are u
 
 ### Architecture 
 ---
-We input 3 randomly sampled views to the pre-trained MobileVNetV3-Large \cite{mobile}. Then, our network splits into two heads used for classification and reconstruction respectively. The classification head is efficiently implemented by adding 2 linear layers.
+We input 3 randomly sampled views to the pre-trained MobileVNetV3-Large. Then, our network splits into two heads used for classification and reconstruction respectively. The classification head is efficiently implemented by adding 2 linear layers.
 
 <p align="center">
 <img src="data/multi.png" width="720px" height="370px"> 
