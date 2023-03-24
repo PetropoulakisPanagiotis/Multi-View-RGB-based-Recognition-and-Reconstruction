@@ -20,12 +20,13 @@ Our method can reconstruct the original 3D object fairly well while using only 3
 <br /> 
 
 
-### Dataset
+### Datasets
 ---
 1. RGB views: http://cvgl.stanford.edu/data2/ShapeNetRendering.tgz
 2. Voxel grid: http://cvgl.stanford.edu/data2/ShapeNetVox32.tgz
 
 ### Authors
+---
 * Christos Georgakilas  
 * Vassilina Papadouli  
 * Panagiotis Petropoulakis
@@ -33,6 +34,7 @@ Our method can reconstruct the original 3D object fairly well while using only 3
 :zap: <em>Equal contribution</em>
 
 ##### Αcknowledgements
+---
 Prof. Dr. Angela Dai @ 3D AI Lab <br />
 Prof. Dr. Matthias Nießner @ Visual Computing Lab <br /> 
 Department of Informatics <br />
