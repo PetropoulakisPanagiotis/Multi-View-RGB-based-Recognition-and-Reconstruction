@@ -3,7 +3,7 @@ The optimal form of the input representation to the Neural networks, which are u
 
 <p align="center">
 <img src="data/multi.png" width="720px" height="370px"> 
-<img src="data/reconstructions.png" width="220px" height="170px"> 
+<img src="data/reconstructions.png" width="320px" height="300px"> 
 </p>
 <br /> 
 
